@@ -1,8 +1,10 @@
 import React from 'react';
 import './Orders.css';
 
-const Orders = props => {
-  const orderEls = props.orders.map(order => {
+const Orders = ({ orders }) => {
+  let arr = []
+  const orderEls = orders.map((order)=> {
+   
     return (
       <div className="order">
         <h3>{order.name}</h3>
