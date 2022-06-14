@@ -1,0 +1,47 @@
+{
+    "orders": [
+      {
+        "id": 1,
+        "name": "Cypress - Pat",
+        "ingredients": [
+          "beans",
+          "lettuce",
+          "carnitas",
+          "queso fresco",
+          "jalapeno"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Cypress - Sam",
+        "ingredients": [
+          "steak",
+          "pico de gallo",
+          "lettuce",
+          "carnitas",
+          "queso fresco",
+          "jalapeno"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Cypress - Alex",
+        "ingredients": [
+          "sofritas",
+          "beans",
+          "sour cream",
+          "carnitas",
+          "queso fresco"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Shirley - POSTED",
+        "ingredients": [
+          "beans",
+          "carnitas",
+          "guacamole" 
+        ]
+      }     
+    ]
+  }
