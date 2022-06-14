@@ -5,8 +5,6 @@ class OrderForm extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    //do I need this props line? 
-
     this.state = {
       name: '',
       ingredients: [],

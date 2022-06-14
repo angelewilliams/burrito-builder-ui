@@ -23,7 +23,6 @@ export const postOrder = (infoToPost) => {
   })
     .then(response => {
       if (response.ok) {
-        console.log(response)
         return response.json()
       }
       else {
@@ -33,6 +32,16 @@ export const postOrder = (infoToPost) => {
    
 }
 
-export const removeOrder = (orderID) => {
-  return fetch()
+export const deleteOrder = (orderID) => {
+  return fetch(`http://localhost:3001/api/v1/orders/${orderID}`, {
+    method: 'DELETE',
+  })
+  .then(response => {
+    if (response.ok) {
+      return
+    }
+    else {
+      throw new Error('Something went wrong')
+    }
+  })
 }
