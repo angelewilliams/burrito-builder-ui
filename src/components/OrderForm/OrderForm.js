@@ -1,23 +1,50 @@
 import React, { Component } from 'react';
+import './OrderForm.css'
 
 class OrderForm extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.props = props;
+    //do I need this props line? 
+
     this.state = {
       name: '',
-      ingredients: []
+      ingredients: [],
+      submitted: false
     };
+
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleIngredientChange = this.handleIngredientChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.clearInputs = this.clearInputs.bind(this)
   }
 
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.clearInputs();
+    this.setState({submitted: true})
+    if(this.state.name && this.state.ingredients.length){
+      this.props.submitOrder({name: this.state.name, ingredients: this.state.ingredients})
+      this.clearInputs();
+    }
+    
   }
 
   clearInputs = () => {
-    this.setState({name: '', ingredients: []});
+    this.setState({name: '', ingredients: [], submitted: false});
+  }
+  
+  handleNameChange = (e) => {
+    this.setState({name: e.target.value});
+
+  }
+
+  handleIngredientChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.name)
+    this.setState({ingredients: [...this.state.ingredients, e.target.name] })
+
+
   }
 
   render() {
@@ -39,11 +66,12 @@ class OrderForm extends Component {
           value={this.state.name}
           onChange={e => this.handleNameChange(e)}
         />
-
+        {this.state.submitted && !this.state.name ? <span className="order-error-msg">Please add a name for your order!</span> : null}
         { ingredientButtons }
 
         <p>Order: { this.state.ingredients.join(', ') || 'Nothing selected' }</p>
-
+        {this.state.submitted && !this.state.ingredients.length ? <span className="order-error-msg">Please add ingredients to your order!</span> : null}
+        
         <button onClick={e => this.handleSubmit(e)}>
           Submit Order
         </button>
