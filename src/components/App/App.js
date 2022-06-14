@@ -23,8 +23,6 @@ class App extends Component {
       .then(getOrders()
         .then(updatedOrders => this.setState({ orders: updatedOrders.orders }))
         .catch(err => console.error('Error posting and fetching:', err)))
-
-
   }
 
   render() {

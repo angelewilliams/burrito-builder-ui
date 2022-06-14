@@ -23,6 +23,7 @@ export const postOrder = (infoToPost) => {
   })
     .then(response => {
       if (response.ok) {
+        console.log(response)
         return response.json()
       }
       else {
@@ -30,4 +31,8 @@ export const postOrder = (infoToPost) => {
       }
     })
    
+}
+
+export const removeOrder = (orderID) => {
+  return fetch()
 }
